@@ -41,7 +41,7 @@ export const Register = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="Email"
-                name="email"
+                // name="email"
                 required
               />
             </label>
@@ -54,7 +54,7 @@ export const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 placeholder="Password"
-                name="password"
+                //  name="password"
                 required
               />
             </label>
@@ -89,7 +89,7 @@ export const Register = () => {
                   onChange={(e) => setName(e.target.value)}
                   type="text"
                   placeholder="Name"
-                  name="name"
+                  // name="name"
                   required
                 />
               </Column>

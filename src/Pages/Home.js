@@ -121,14 +121,14 @@ export const Home = () => {
 
         <ButtonToolbar center>
           <ButtonGroup ml9 mr9>
-            <NavLink to="/login">
+            <NavLink to="/auth">
               <Button dark>
                 <Iorders>Я заказчик</Iorders>
               </Button>
             </NavLink>
           </ButtonGroup>
           <ButtonGroup ml9>
-            <NavLink to="/login">
+            <NavLink to="/auth">
               <Button dark>
                 <IExecutors>Я исполнитель</IExecutors>
               </Button>
