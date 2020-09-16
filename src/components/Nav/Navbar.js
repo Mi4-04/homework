@@ -1,13 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import { Navbar, NavbarLink } from 'styled-navbar-component';
 import { Nav } from 'styled-nav-component';
 import { NavLink } from 'react-router-dom';
-
-const StyledNav = styled.div`
-  border: 1px solid rgba(2, 3, 3, 0.5);
-  box-shadow: 0 0 14px 0 rgba(3, 5, 7, 0.35);
-`;
+import { StyledNav } from './style';
 
 export const NavbarLight = () => {
   return (
@@ -24,9 +20,11 @@ export const NavbarLight = () => {
           <NavLink to="/" exact>
             <NavbarLink dark>Главная</NavbarLink>
           </NavLink>
+
           <NavLink to="/orders">
             <NavbarLink dark>Заказы</NavbarLink>
           </NavLink>
+
           <NavLink to="/executors">
             <NavbarLink dark>Исполнители</NavbarLink>
           </NavLink>

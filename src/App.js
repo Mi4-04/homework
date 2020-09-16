@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { NavbarLight } from './components/Navbar';
-import { Home } from './Pages/Home';
-import { Orders } from './Pages/orders';
-import { Executors } from './Pages/Executors';
-import { Auction } from './Pages/Auction';
-import { About } from './Pages/About';
-import { Auth } from './components/Auth';
-import { Login } from './Pages/Login';
-import { Register } from './Pages/Register';
+import { NavbarLight } from './components/Nav/Navbar';
+import { Home } from './Pages/Home/Home';
+import { Orders } from './Pages/Orders/orders';
+import { Executors } from './Pages/Executors/Executors';
+import { Auction } from './Pages/Auction/Auction';
+import { About } from './Pages/About/About';
+import { Auth } from './components/Auth/Auth';
+import { Login } from './Pages/Login/Login';
+import { Register } from './Pages/Register/Register';
 
 function App() {
   return (
