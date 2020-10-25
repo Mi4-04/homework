@@ -1,15 +1,28 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Helmet from 'react-helmet';
 import { Auth } from '../../components/Auth/Auth';
 import { FormGroup, FormText } from 'styled-form-component';
-import { Button } from 'styled-button-component';
 import { Container } from 'styled-container-component';
-import { NameAuth, FormControl } from './style';
+import { NameAuth, FormControl, Button } from './style';
 import { useForm } from 'react-hook-form';
+import request from '../Register/request';
+import { AuthContext } from '../../context/auth';
 
-export const Login = () => {
+
+
+export const Login = (props) => {
+
+  const context = useContext(AuthContext)
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = async (data) => {
+    console.log(data);
+
+    const response = await request({ method: 'post', data, url: '/signin' })
+    
+    context.signin(response.data.token)
+    props.history.push('/orders')
+  };
 
   return (
     <div>
@@ -41,7 +54,8 @@ export const Login = () => {
           </FormGroup>
 
           <FormGroup>
-            <Button type="submit" block dark>
+            <Button  type="submit"  >
+              
               Войти
             </Button>
           </FormGroup>

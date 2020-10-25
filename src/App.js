@@ -8,11 +8,16 @@ import { Auction } from './Pages/Auction/Auction';
 import { About } from './Pages/About/About';
 import { Auth } from './components/Auth/Auth';
 import { Login } from './Pages/Login/Login';
-import { Register } from './Pages/Register/Register';
+import Register from './Pages/Register';
+import { AuthProvider } from './context/auth';
+import AuthRoute from './components/Auth/AuthRoute'
 
 function App() {
+  
   return (
+  <AuthProvider>
     <BrowserRouter>
+    
       <div className="container pt-4 ">
         <NavbarLight />
         <Switch>
@@ -24,11 +29,14 @@ function App() {
           <Route path="/auction" component={Auction} />
           <Route path="/about" component={About} />
           <Route path="/auth" component={Auth} />
-          <Route path="/signin" component={Login} />
+          <AuthRoute path="/signin" component={Login} />
           <Route path="/signup" component={Register} />
+       
         </Switch>
       </div>
+      
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 

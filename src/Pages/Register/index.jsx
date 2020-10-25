@@ -7,17 +7,29 @@ import { Button } from 'styled-button-component';
 import { Container } from 'styled-container-component';
 import { Column } from 'styled-grid-system-component';
 import { NameAuth, FormControl, ErrorMsg } from './style';
+import request from './request';
+import { useContext } from 'react';
+import {AuthContext} from '../../context/auth'
 
-export const Register = () => {
+const Register = (props) => {
+  
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
-  //console.log(watch());
+  const context = useContext(AuthContext)
+  const onSubmit = async (data) => {
+    console.log(data);
+    const response = await request({ method: 'post', data , url: '/signup' })
+    context.signin(data)
+    props.history.push('/signin');
+
+  };
+
+
   return (
     <div>
       <Helmet title="Регистрация" />
       <Auth />
 
-      <form action="/signup" method="POST" onSubmit={handleSubmit(onSubmit)}>
+      <form action="/signup" onSubmit={handleSubmit(onSubmit)}>
         <Container>
           <NameAuth>
             <h1>Регистрация</h1>
@@ -71,6 +83,7 @@ export const Register = () => {
           {errors.reqPassword && errors.reqPassword.type === 'minLength' && (
             <ErrorMsg>Минимум 6 символов </ErrorMsg>
           )}
+          
           <FormGroup row>
             <Column sm={6}>
               <FormControl
@@ -124,7 +137,7 @@ export const Register = () => {
           </FormGroup>
 
           <FormGroup>
-            <Button type="submit" block dark>
+            <Button type="submit"  block dark>
               Регистрация
             </Button>
           </FormGroup>
@@ -133,3 +146,5 @@ export const Register = () => {
     </div>
   );
 };
+
+export default Register;

@@ -29,14 +29,14 @@ export const Home = () => {
 
           <ButtonToolbar center>
             <ButtonGroup ml9 mr9>
-              <NavLink to="/auth">
+              <NavLink to="/signin">
                 <Button dark>
                   <Iorders>Я заказчик</Iorders>
                 </Button>
               </NavLink>
             </ButtonGroup>
             <ButtonGroup ml9>
-              <NavLink to="/auth">
+              <NavLink to="/signin">
                 <Button dark>
                   <IExecutors>Я исполнитель</IExecutors>
                 </Button>

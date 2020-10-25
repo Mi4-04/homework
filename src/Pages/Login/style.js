@@ -23,3 +23,17 @@ export const FormControl = styled.input `
 
    }
 `;
+
+export const Button = styled.button `
+
+display: block;
+background: #343a40;
+color: rgb(256,256, 256);
+font-size: 16px;
+width: 100%;
+padding: 10px;
+border-radius: 5px;
+:hover{
+  background: #23272b;
+}
+`;
