@@ -1,4 +1,4 @@
-import React, {  useContext } from 'react';
+import React, {  useContext, useState } from 'react';
 import { Navbar, NavbarLink } from 'styled-navbar-component';
 import { Nav } from 'styled-nav-component';
 import { NavLink } from 'react-router-dom';
@@ -29,7 +29,7 @@ function LogoutButton(props) {
 export const NavbarLight = () => {
   const {user, logout} = useContext(AuthContext)
 
-  const navbarLayout = !user ? (
+  const navbarLayout =   (
     <StyledNav>
     <Navbar expandSm dark>
       <Nav start="true">
@@ -60,46 +60,11 @@ export const NavbarLight = () => {
       </Nav>
 
       <Nav end="true" expandSm>
-        <LoginButton />
+        {user ? <LogoutButton onClick = {logout} /> : <LoginButton />}
       </Nav>
     </Navbar>
   </StyledNav>
-  ) : (
-    <StyledNav>
-    <Navbar expandSm dark>
-      <Nav start="true">
-        <NavLink exact to="/">
-          <NavbarLink dark brand>
-            BRAND
-          </NavbarLink>
-        </NavLink>
-      </Nav>
-      <Nav center expandSm>
-        <NavLink to="/" exact>
-          <NavbarLink dark>Главная</NavbarLink>
-        </NavLink>
-
-        <NavLink to="/orders">
-          <NavbarLink dark>Заказы</NavbarLink>
-        </NavLink>
-
-        <NavLink to="/executors">
-          <NavbarLink dark>Исполнители</NavbarLink>
-        </NavLink>
-        <NavLink to="/auction">
-          <NavbarLink dark>Аукцион</NavbarLink>
-        </NavLink>
-        <NavLink to="/about">
-          <NavbarLink dark>О проекте</NavbarLink>
-        </NavLink>
-      </Nav>
-
-      <Nav end="true" expandSm>
-        <LogoutButton onClick = {logout} />
-      </Nav>
-    </Navbar>
-  </StyledNav>
-  )
+  ) 
 
   return navbarLayout;
 

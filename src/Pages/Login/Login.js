@@ -16,7 +16,6 @@ export const Login = (props) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
 
     const response = await request({ method: 'post', data, url: '/signin' })
     

@@ -16,7 +16,6 @@ const Register = (props) => {
   const { register, handleSubmit, errors } = useForm();
   const context = useContext(AuthContext)
   const onSubmit = async (data) => {
-    console.log(data);
     const response = await request({ method: 'post', data , url: '/signup' })
     context.signin(data)
     props.history.push('/signin');
