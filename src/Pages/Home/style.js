@@ -45,3 +45,12 @@ export const IExecutors = styled.button `
 
   font-size: 16px;
 `;
+
+export const DivButton = styled.div `
+text-align: center;
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+`;

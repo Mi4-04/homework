@@ -1,12 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useForm } from 'react-hook-form';
+import { ErrorMessage } from "@hookform/error-message";
 import { Auth } from '../../components/Auth/Auth';
-import { FormGroup } from 'styled-form-component';
+import { FormGroup, FormCheck, FormCheckInput  } from 'styled-form-component';
 import { Button } from 'styled-button-component';
 import { Container } from 'styled-container-component';
 import { Column } from 'styled-grid-system-component';
-import { NameAuth, FormControl, ErrorMsg } from './style';
+import { NameAuth, FormControl, ErrorMsg, LabelSelect, DivSelect } from './style';
 import request from './request';
 import { useContext } from 'react';
 import {AuthContext} from '../../context/auth'
@@ -17,7 +18,7 @@ const Register = (props) => {
   const context = useContext(AuthContext)
   const onSubmit = async (data) => {
     const response = await request({ method: 'post', data , url: '/signup' })
-    context.signin(data)
+    context.signup(data)
     props.history.push('/signin');
 
   };
@@ -45,9 +46,14 @@ const Register = (props) => {
               />
             </label>
           </FormGroup>
-          {errors.email && errors.reqPassword.type === 'required' && (
-            <ErrorMsg>This is required</ErrorMsg>
-          )}
+
+          <ErrorMessage
+        errors={errors}
+        name="email"
+        render={
+          () => <ErrorMsg>"This is required"</ErrorMsg>}
+      />
+      
           <FormGroup>
             <label>
               Пароль
@@ -59,12 +65,19 @@ const Register = (props) => {
               />
             </label>
           </FormGroup>
-          {errors.password && errors.password.type === 'required' && (
-            <ErrorMsg>This is required</ErrorMsg>
-          )}
-          {errors.password && errors.password.type === 'minLength' && (
-            <ErrorMsg>Минимум 6 символов </ErrorMsg>
-          )}
+          <ErrorMessage
+        errors={errors}
+        name="password"
+        render={
+          () => <ErrorMsg>"This is required"</ErrorMsg>}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="password"
+        render={
+          () => <ErrorMsg>"Минимум 6 символов"</ErrorMsg>}
+      />
+         
           <FormGroup>
             <label>
               Пароль еще раз
@@ -76,12 +89,18 @@ const Register = (props) => {
               />
             </label>
           </FormGroup>
-          {errors.reqPassword && errors.reqPassword.type === 'required' && (
-            <ErrorMsg>This is required</ErrorMsg>
-          )}
-          {errors.reqPassword && errors.reqPassword.type === 'minLength' && (
-            <ErrorMsg>Минимум 6 символов </ErrorMsg>
-          )}
+          <ErrorMessage
+        errors={errors}
+        name="reqPassword"
+        render={
+          () => <ErrorMsg>"This is required"</ErrorMsg>}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="reqPassword"
+        render={
+          () => <ErrorMsg>"Минимум 6 символов"</ErrorMsg>}
+      />
           
           <FormGroup row>
             <Column sm={6}>
@@ -92,9 +111,13 @@ const Register = (props) => {
                 ref={register({ required: true })}
               />
             </Column>
-            {errors.surname && errors.surname.type === 'required' && (
-              <ErrorMsg>This is required</ErrorMsg>
-            )}
+            <ErrorMessage
+        errors={errors}
+        name="surname"
+        render={
+          () => <ErrorMsg>"This is required"</ErrorMsg>}
+      />
+
             <Column sm={6}>
               <FormControl
                 type="text"
@@ -103,9 +126,12 @@ const Register = (props) => {
                 ref={register({ required: true })}
               />
             </Column>
-            {errors.name && errors.name.type === 'required' && (
-              <ErrorMsg>This is required</ErrorMsg>
-            )}
+            <ErrorMessage
+        errors={errors}
+        name="name"
+        render={
+          () => <ErrorMsg>"This is required"</ErrorMsg>}
+      />
           </FormGroup>
 
           <FormGroup row>
@@ -117,9 +143,12 @@ const Register = (props) => {
                 ref={register({ required: true })}
               />
             </Column>
-            {errors.country && errors.country.type === 'required' && (
-              <ErrorMsg>This is required</ErrorMsg>
-            )}
+            <ErrorMessage
+        errors={errors}
+        name="country"
+        render={
+          () => <ErrorMsg>"This is required"</ErrorMsg>}
+      />
             <Column sm={4}>
               <FormGroup>
                 <FormControl
@@ -130,10 +159,32 @@ const Register = (props) => {
                 />
               </FormGroup>
             </Column>
-            {errors.city && errors.city.type === 'required' && (
-              <ErrorMsg>This is required</ErrorMsg>
-            )}
+            <ErrorMessage
+        errors={errors}
+        name="city"
+        render={
+          () => <ErrorMsg>"This is required"</ErrorMsg>}
+      />
           </FormGroup>
+
+         <DivSelect>
+          <FormCheck inline >
+        <LabelSelect>
+          <FormCheckInput type="radio" name="typeUser" value = "iCustomer" ref={register({ required: true })} /> Я заказчик
+        </LabelSelect>
+      </FormCheck>
+      <FormCheck inline >
+        <LabelSelect>
+          <FormCheckInput  type="radio" name="typeUser" value = "iExecutor" ref={register({ required: true })} /> Я исполнитель
+        </LabelSelect>
+      </FormCheck>
+      <ErrorMessage
+        errors={errors}
+        name="typeUser"
+        render={
+          () => <ErrorMsg>"This is required"</ErrorMsg>}
+      />
+      </DivSelect>
 
           <FormGroup>
             <Button type="submit"  block dark>

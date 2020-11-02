@@ -27,5 +27,23 @@ export const FormControl = styled.input `
 export const ErrorMsg = styled.p `
 
 color: red;
+:before {
+  display: inline;
+  content: "⚠ ";
+}
+`;
+
+export const DivSelect = styled.div `
+
+text-align: center;
+
+`;
+
+export const LabelSelect  =styled.label `
+font-size: 18px;
+padding-bottom: 25px;
+margin-left: 25px;
+margin-right:15px;
+
 
 `;

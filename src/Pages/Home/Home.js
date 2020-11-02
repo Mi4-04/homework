@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 //import styled from 'styled-components';
 import { Container } from 'styled-container-component';
 import { Button, ButtonGroup, ButtonToolbar } from 'styled-button-component';
-import { GeneralTop, HeaderName, HeaderInfo1, HeaderInfo2, Iorders, IExecutors } from './style';
+import { GeneralTop, HeaderName, HeaderInfo1, HeaderInfo2, Iorders, IExecutors, DivButton } from './style';
 
 export const Home = () => {
   return (
@@ -27,6 +27,7 @@ export const Home = () => {
             <p>Достойное вознаграждение и ожидаемый результат.</p>
           </HeaderInfo2>
 
+<DivButton>
           <ButtonToolbar center>
             <ButtonGroup ml9 mr9>
               <NavLink to="/signin">
@@ -43,6 +44,8 @@ export const Home = () => {
               </NavLink>
             </ButtonGroup>
           </ButtonToolbar>
+          </DivButton>
+
         </Container>
       </GeneralTop>
     </div>

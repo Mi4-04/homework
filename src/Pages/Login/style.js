@@ -37,3 +37,13 @@ border-radius: 5px;
   background: #23272b;
 }
 `;
+
+
+export const ErrorMsg = styled.p `
+
+color: red;
+:before {
+  display: inline;
+  content: "⚠ ";
+}
+`;
