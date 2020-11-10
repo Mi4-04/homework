@@ -7,7 +7,7 @@ import { NameAuth, FormControl, Button, ErrorMsg } from './style';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from "@hookform/error-message";
 import request from '../Register/request';
-import { AuthContext } from '../../context/auth';
+import { AuthContext, AuthProvider } from '../../context/auth';
 
 
 
@@ -20,7 +20,7 @@ export const Login = (props) => {
 
     const response = await request({ method: 'post', data, url: '/signin' })
     
-    context.signin(response.data.token)
+    context.signIn(response.data.token)
     props.history.push('/orders')
   };
 
@@ -44,7 +44,7 @@ export const Login = (props) => {
                <ErrorMessage
         errors={errors}
         name="email"
-        render={
+        as={
           () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
 
@@ -62,7 +62,7 @@ export const Login = (props) => {
           <ErrorMessage
         errors={errors}
         name="email"
-        render={
+        as={
           () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
 

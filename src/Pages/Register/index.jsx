@@ -15,10 +15,9 @@ import {AuthContext} from '../../context/auth'
 const Register = (props) => {
   
   const { register, handleSubmit, errors } = useForm();
-  const context = useContext(AuthContext)
+ // const context = useContext(AuthContext)
   const onSubmit = async (data) => {
     const response = await request({ method: 'post', data , url: '/signup' })
-    context.signup(data)
     props.history.push('/signin');
 
   };
@@ -50,7 +49,7 @@ const Register = (props) => {
           <ErrorMessage
         errors={errors}
         name="email"
-        render={
+        as={
           () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
       
@@ -68,13 +67,13 @@ const Register = (props) => {
           <ErrorMessage
         errors={errors}
         name="password"
-        render={
+        as={
           () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
       <ErrorMessage
         errors={errors}
         name="password"
-        render={
+        as={
           () => <ErrorMsg>"Минимум 6 символов"</ErrorMsg>}
       />
          
@@ -92,30 +91,14 @@ const Register = (props) => {
           <ErrorMessage
         errors={errors}
         name="reqPassword"
-        render={
+        as={
           () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
       <ErrorMessage
         errors={errors}
         name="reqPassword"
-        render={
+        as={
           () => <ErrorMsg>"Минимум 6 символов"</ErrorMsg>}
-      />
-          
-          <FormGroup row>
-            <Column sm={6}>
-              <FormControl
-                type="text"
-                placeholder="Surname"
-                name="surname"
-                ref={register({ required: true })}
-              />
-            </Column>
-            <ErrorMessage
-        errors={errors}
-        name="surname"
-        render={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
 
             <Column sm={6}>
@@ -126,46 +109,13 @@ const Register = (props) => {
                 ref={register({ required: true })}
               />
             </Column>
+          
             <ErrorMessage
         errors={errors}
         name="name"
-        render={
+        as={
           () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
-          </FormGroup>
-
-          <FormGroup row>
-            <Column sm={8}>
-              <FormControl
-                type="text"
-                placeholder="Country"
-                name="country"
-                ref={register({ required: true })}
-              />
-            </Column>
-            <ErrorMessage
-        errors={errors}
-        name="country"
-        render={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
-      />
-            <Column sm={4}>
-              <FormGroup>
-                <FormControl
-                  name="city"
-                  type="text"
-                  placeholder="City"
-                  ref={register({ required: true })}
-                />
-              </FormGroup>
-            </Column>
-            <ErrorMessage
-        errors={errors}
-        name="city"
-        render={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
-      />
-          </FormGroup>
 
          <DivSelect>
           <FormCheck inline >
@@ -181,7 +131,7 @@ const Register = (props) => {
       <ErrorMessage
         errors={errors}
         name="typeUser"
-        render={
+        as={
           () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
       </DivSelect>

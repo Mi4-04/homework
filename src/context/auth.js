@@ -1,17 +1,18 @@
-import React, {createContext} from 'react'
+import React, {useState,useCallback,createContext} from 'react'
 import { useReducer } from 'react';
 import { SIGNIN, LOGOUT, SIGNUP } from './types';
-import jwt_decode  from 'jwt-decode'
+import jwtDecode  from 'jwt-decode'
 
 
 const initialState = {
-    user: null
+    user: null,
+  
 }
 
 const jwtToken = localStorage.getItem('token');
 
 if(jwtToken) {
-    const decodedToken  = jwt_decode(jwtToken)
+    const decodedToken  = jwtDecode(jwtToken)
     
     if(decodedToken.exp * 1000 < Date.now()) {
         localStorage.removeItem('token')
@@ -23,12 +24,32 @@ if(jwtToken) {
 
  const AuthContext =  createContext({
     user: null, 
-    signup: (data) => {},
-    signin: (data) => {},
+    signIn: (data) => {},
     logout: () => {}
 })
 
-const AuthReducer = (state, action) => {
+const AuthProvider = (props) => {
+     
+    const [user, setUser] = useState(initialState)
+    
+    //debugger;
+    const signIn = useCallback((token) => {
+         localStorage.setItem('token', token)
+        setUser(token)}, [setUser])
+    
+    const logout = useCallback(() =>{
+       
+
+        localStorage.removeItem('token');
+         setUser(null)}, [setUser])
+         return (
+            <AuthContext.Provider
+            
+             value = {{user: user, logout, signIn}} 
+              {...props}/>
+        )
+    }
+/*const AuthReducer = (state, action) => {
     switch(action.type) {
 
 case SIGNUP:
@@ -53,15 +74,16 @@ return {
         default: 
         return state
     }
-}
+}*/
  
 
- const AuthProvider = (props) => {
-    const [state, dispatch] = useReducer(AuthReducer,initialState)
+ 
+
+   /* const [state, dispatch] = useReducer(AuthReducer,initialState)
 
     const signup = (token) => {
 
-        localStorage.setItem('token',  token)
+        
 
      dispatch({
         type: SIGNUP,
@@ -87,14 +109,9 @@ return {
 dispatch({
     type: LOGOUT,
 })
-    }
+    }*/
 
-    return (
-        <AuthContext.Provider
-         value = {{user: state.user, logout, signin, signup}} 
-          {...props}/>
-    )
-}
+
 
 
 export    {AuthProvider, AuthContext}
