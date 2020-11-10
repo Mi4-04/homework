@@ -6,7 +6,7 @@ import { Container } from 'styled-container-component';
 import { NameAuth, FormControl, Button, ErrorMsg } from './style';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from "@hookform/error-message";
-import request from '../Register/request';
+import request from '../../utils/request';
 import { AuthContext } from '../../context/auth';
 
 

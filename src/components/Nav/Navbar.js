@@ -6,6 +6,7 @@ import { StyledNav } from './style';
 import { Button } from 'styled-button-component';
 import { AuthContext } from '../../context/auth';
 
+
 function LoginButton(props) {
   return (
     <NavLink to="/signin">
@@ -24,6 +25,17 @@ function LogoutButton(props) {
       </Button>
     </NavLink>
   );
+}
+
+
+function PostButton() {
+  return (
+<NavLink to = "/project/create" >
+<Button m1 success outline>
+  Разместить заказ
+</Button>
+</NavLink>
+  )
 }
 
 export const NavbarLight = () => {
@@ -60,7 +72,8 @@ export const NavbarLight = () => {
       </Nav>
 
       <Nav end="true" expandSm>
-        {user ? <LogoutButton onClick = {logout} /> : <LoginButton />}
+        {user ? <PostButton /> : null}
+        {user ? <LogoutButton onClick = {logout} />  : <LoginButton />}
       </Nav>
     </Navbar>
   </StyledNav>

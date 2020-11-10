@@ -8,7 +8,7 @@ import { Button } from 'styled-button-component';
 import { Container } from 'styled-container-component';
 import { Column } from 'styled-grid-system-component';
 import { NameAuth, FormControl, ErrorMsg, LabelSelect, DivSelect } from './style';
-import request from './request';
+import request from '../../utils/request';
 import { useContext } from 'react';
 import {AuthContext} from '../../context/auth'
 

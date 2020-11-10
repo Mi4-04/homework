@@ -11,7 +11,7 @@ export const Home = () => {
     <div>
       <Helmet title="Главная" />
       <GeneralTop dark>
-        <Container>
+        <Container sm>
           <HeaderName>
             <p>Услуги дизайнеров</p>
           </HeaderName>
