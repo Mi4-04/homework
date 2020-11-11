@@ -1,6 +1,4 @@
 import React, {useState,useCallback,createContext} from 'react'
-import { useReducer } from 'react';
-import { SIGNIN, LOGOUT, SIGNUP } from './types';
 import jwtDecode  from 'jwt-decode'
 
 
@@ -22,6 +20,8 @@ if(jwtToken) {
     }
 }
 
+
+
  const AuthContext =  createContext({
     user: null, 
     signIn: (data) => {},
@@ -30,10 +30,11 @@ if(jwtToken) {
 
 const AuthProvider = (props) => {
      
-    const [user, setUser] = useState(initialState)
+    const [users, setUser] = useState(jwtToken)
     
     //debugger;
     const signIn = useCallback((token) => {
+        
          localStorage.setItem('token', token)
         setUser(token)}, [setUser])
     
@@ -45,73 +46,10 @@ const AuthProvider = (props) => {
          return (
             <AuthContext.Provider
             
-             value = {{user: user, logout, signIn}} 
+             value = {{user: users, logout, signIn}} 
               {...props}/>
         )
     }
-/*const AuthReducer = (state, action) => {
-    switch(action.type) {
-
-case SIGNUP:
-    return {
-        ...state,
-        user: null
-    };
-
-case SIGNIN: 
-return {
-    ...state,
-    user: action.payload
-};
-
-case LOGOUT:
-
-return {
-    ...state,
-    user: null
-};
-
-        default: 
-        return state
-    }
-}*/
- 
-
- 
-
-   /* const [state, dispatch] = useReducer(AuthReducer,initialState)
-
-    const signup = (token) => {
-
-        
-
-     dispatch({
-        type: SIGNUP,
-        payload: token
-
-})
-    }
-
-
-    const signin = (token) => {
-
-        localStorage.setItem('token',  token)
-
-     dispatch({
-        type: SIGNIN,
-        payload: token
-
-})
-    }
-
-    const logout = () => {
-        localStorage.removeItem('token')
-dispatch({
-    type: LOGOUT,
-})
-    }*/
-
-
 
 
 export    {AuthProvider, AuthContext}

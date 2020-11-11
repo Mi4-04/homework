@@ -65,7 +65,7 @@ export const NavbarLight = () => {
     </Navbar>
   </StyledNav>
   ) 
-
+  console.log(user)
   return navbarLayout;
 
 };
