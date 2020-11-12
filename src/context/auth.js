@@ -1,7 +1,6 @@
 import React, {useState,useCallback,createContext} from 'react'
 import jwtDecode  from 'jwt-decode'
 
-
 const initialState = {
     user: null,
   
@@ -32,7 +31,6 @@ const AuthProvider = (props) => {
      
     const [users, setUser] = useState(jwtToken)
     
-    //debugger;
     const signIn = useCallback((token) => {
         
          localStorage.setItem('token', token)
@@ -40,7 +38,6 @@ const AuthProvider = (props) => {
     
     const logout = useCallback(() =>{
        
-
         localStorage.removeItem('token');
          setUser(null)}, [setUser])
          return (
