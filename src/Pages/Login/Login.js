@@ -20,7 +20,7 @@ export const Login = (props) => {
 
     const response = await request({ method: 'post', data, url: '/signin' })
     
-    context.signin(response.data.token)
+    context.signIn(response.data.token)
     props.history.push('/orders')
   };
 

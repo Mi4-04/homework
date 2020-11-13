@@ -102,23 +102,9 @@ const Register = (props) => {
           () => <ErrorMsg>"Минимум 6 символов"</ErrorMsg>}
       />
           
-          <FormGroup row>
-            <Column sm={6}>
-              <FormControl
-                type="text"
-                placeholder="Surname"
-                name="surname"
-                ref={register({ required: true })}
-              />
-            </Column>
-            <ErrorMessage
-        errors={errors}
-        name="surname"
-        render={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
-      />
-
-            <Column sm={6}>
+    
+          <FormGroup>
+            <Column sm={5}>
               <FormControl
                 type="text"
                 placeholder="Name"
@@ -132,40 +118,8 @@ const Register = (props) => {
         render={
           () => <ErrorMsg>"This is required"</ErrorMsg>}
       />
-          </FormGroup>
+        </FormGroup>
 
-          <FormGroup row>
-            <Column sm={8}>
-              <FormControl
-                type="text"
-                placeholder="Country"
-                name="country"
-                ref={register({ required: true })}
-              />
-            </Column>
-            <ErrorMessage
-        errors={errors}
-        name="country"
-        render={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
-      />
-            <Column sm={4}>
-              <FormGroup>
-                <FormControl
-                  name="city"
-                  type="text"
-                  placeholder="City"
-                  ref={register({ required: true })}
-                />
-              </FormGroup>
-            </Column>
-            <ErrorMessage
-        errors={errors}
-        name="city"
-        render={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
-      />
-          </FormGroup>
 
          <DivSelect>
           <FormCheck inline >
