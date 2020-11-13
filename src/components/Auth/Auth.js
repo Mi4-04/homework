@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav } from 'styled-nav-component';
 import { NavLink } from 'react-router-dom';
-import NavLog from './style';
+import {NavLog} from './style';
 
 
 export const Auth = () => {

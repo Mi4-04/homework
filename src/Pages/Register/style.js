@@ -20,12 +20,10 @@ export const FormControl = styled.input `
      background: rgba(195, 195, 190, .2);
    }
    
-
    }
 `;
 
 export const ErrorMsg = styled.p `
-
 color: red;
 :before {
   display: inline;
@@ -34,9 +32,7 @@ color: red;
 `;
 
 export const DivSelect = styled.div `
-
 text-align: center;
-
 `;
 
 export const LabelSelect  =styled.label `
@@ -44,6 +40,4 @@ font-size: 18px;
 padding-bottom: 25px;
 margin-left: 25px;
 margin-right:15px;
-
-
 `;

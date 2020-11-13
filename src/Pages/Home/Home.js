@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { NavLink } from 'react-router-dom';
-//import styled from 'styled-components';
 import { Container } from 'styled-container-component';
 import { Button, ButtonGroup, ButtonToolbar } from 'styled-button-component';
 import { GeneralTop, HeaderName, HeaderInfo1, HeaderInfo2, Iorders, IExecutors, DivButton } from './style';

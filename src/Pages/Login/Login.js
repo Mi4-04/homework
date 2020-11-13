@@ -39,13 +39,12 @@ export const Login = (props) => {
               name="email"
               type="email"
               placeholder="Enter email"
-              ref={register({ required: true })}
+              ref={register({ required: "This is required" })}
             />
                <ErrorMessage
         errors={errors}
         name="email"
-        as={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+        as={<ErrorMsg/>}
       />
 
             <FormText muted>We&#39;ll never share your email with anyone else.</FormText>
@@ -55,15 +54,14 @@ export const Login = (props) => {
               name="password"
               type="password"
               placeholder="Enter password"
-              ref={register({ required: true })}
+              ref={register({ required: "This is required" })}
             />
           </FormGroup>
 
           <ErrorMessage
         errors={errors}
-        name="email"
-        as={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+        name="password"
+        as={<ErrorMsg/>}
       />
 
 

@@ -41,7 +41,7 @@ const Register = (props) => {
                 type="email"
                 placeholder="Email"
                 name="email"
-                ref={register({ required: true })}
+                ref={register({ required: "This is required" })}
               />
             </label>
           </FormGroup>
@@ -49,8 +49,7 @@ const Register = (props) => {
           <ErrorMessage
         errors={errors}
         name="email"
-        as={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+        as={<ErrorMsg/>}
       />
       
           <FormGroup>
@@ -60,22 +59,19 @@ const Register = (props) => {
                 type="password"
                 placeholder="Password"
                 name="password"
-                ref={register({ required: true, minLength: 6 })}
+                ref={register({ required: "This is required " ,  minLength: {
+                  value: 6,
+                  message: "Минимум 6 символов"
+                 } })}
               />
             </label>
           </FormGroup>
           <ErrorMessage
         errors={errors}
         name="password"
-        as={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+        as={<ErrorMsg/>}
       />
-      <ErrorMessage
-        errors={errors}
-        name="password"
-        as={
-          () => <ErrorMsg>"Минимум 6 символов"</ErrorMsg>}
-      />
+    
          
           <FormGroup>
             <label>
@@ -84,55 +80,50 @@ const Register = (props) => {
                 type="password"
                 placeholder="Repeat password"
                 name="reqPassword"
-                ref={register({ required: true, minLength: 6 })}
+                ref={register({ required: "This is required " ,  minLength: {
+                  value: 6,
+                  message: "Минимум 6 символов"
+                 } })}
               />
             </label>
           </FormGroup>
           <ErrorMessage
         errors={errors}
         name="reqPassword"
-        as={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+        as={<ErrorMsg/>}
       />
-      <ErrorMessage
-        errors={errors}
-        name="reqPassword"
-        as={
-          () => <ErrorMsg>"Минимум 6 символов"</ErrorMsg>}
-      />
+     
 
             <Column sm={6}>
               <FormControl
                 type="text"
                 placeholder="Name"
                 name="name"
-                ref={register({ required: true })}
+                ref={register({ required: "This is required" })}
               />
             </Column>
           
             <ErrorMessage
         errors={errors}
         name="name"
-        as={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+        as={<ErrorMsg/>}
       />
 
          <DivSelect>
           <FormCheck inline >
         <LabelSelect>
-          <FormCheckInput type="radio" name="typeUser" value = "iCustomer" ref={register({ required: true })} /> Я заказчик
+          <FormCheckInput type="radio" name="typeUser" value = "iCustomer" ref={register({ required: "This is required" })} /> Я заказчик
         </LabelSelect>
       </FormCheck>
       <FormCheck inline >
         <LabelSelect>
-          <FormCheckInput  type="radio" name="typeUser" value = "iExecutor" ref={register({ required: true })} /> Я исполнитель
+          <FormCheckInput  type="radio" name="typeUser" value = "iExecutor" ref={register({ required: "This is required" })} /> Я исполнитель
         </LabelSelect>
       </FormCheck>
       <ErrorMessage
         errors={errors}
         name="typeUser"
-        as={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+        as={<ErrorMsg/>}
       />
       </DivSelect>
 
