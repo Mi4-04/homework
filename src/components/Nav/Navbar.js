@@ -6,6 +6,7 @@ import { StyledNav } from './style';
 import { Button } from 'styled-button-component';
 import { AuthContext } from '../../context/auth';
 
+
 function LoginButton(props) {
   return (
     <NavLink to="/signin">

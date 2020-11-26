@@ -31,7 +31,7 @@ function App() {
           <Route path="/auth" component={Auth} />
           <AuthRoute path="/signin" component={Login} />
           <Route path="/signup" component={Register} />
-       
+         
         </Switch>
       </div>
       

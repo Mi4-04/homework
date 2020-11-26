@@ -3,10 +3,10 @@
         "browser": true,
         "es2021": true
     },
-    "extends": 
-        ["react-app", "prettier", "plugin:react/recommended"],
-        
-    
+    "extends": [
+        "react-app",
+        "prettier"
+      ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -15,12 +15,12 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react", "prettier"
-    ],
+        "prettier"
+      ],
     "rules": {
-        "prettier/prettier": [
-            "error",
-            "prettier"
+        "jsx-quotes": [
+          1,
+          "prefer-double"
         ]
-    }
+      }
 }

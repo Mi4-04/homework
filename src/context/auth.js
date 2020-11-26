@@ -1,25 +1,5 @@
-import React, {useState,useCallback,createContext} from 'react'
+import React, {useState,useCallback,createContext, useEffect} from 'react'
 import jwtDecode  from 'jwt-decode'
-
-const initialState = {
-    user: null,
-  
-}
-
-const jwtToken = localStorage.getItem('token');
-
-if(jwtToken) {
-    const decodedToken  = jwtDecode(jwtToken)
-    
-    if(decodedToken.exp * 1000 < Date.now()) {
-        localStorage.removeItem('token')
-    }else {
-      
-        initialState.user  = decodedToken
-    }
-}
-
-
 
  const AuthContext =  createContext({
     user: null, 
@@ -29,7 +9,22 @@ if(jwtToken) {
 
 const AuthProvider = (props) => {
      
+    const jwtToken = localStorage.getItem('token');
     const [users, setUser] = useState(jwtToken)
+
+    useEffect(() => {
+        const jwtToken = localStorage.getItem('token');
+
+        if(jwtToken) {
+            const decodedToken  = jwtDecode(jwtToken)
+            
+            if(decodedToken.exp * 1000 < Date.now()) {
+                
+                localStorage.removeItem('token')
+                setUser(null)
+            }
+        }
+    }, [])
     
     const signIn = useCallback((token) => {
         
@@ -47,6 +42,5 @@ const AuthProvider = (props) => {
               {...props}/>
         )
     }
-
 
 export    {AuthProvider, AuthContext}
