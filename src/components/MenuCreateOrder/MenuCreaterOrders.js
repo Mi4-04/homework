@@ -1,12 +1,12 @@
-//import { green } from '@material-ui/core/colors'
+// import { green } from '@material-ui/core/colors'
 import React from 'react'
-import {NavLink} from 'react-router-dom'
-import {Nav, Container, Navbar} from 'styled-bootstrap-components'
-import {Main, DivText, Text, DivCheck} from './style'
+import { NavLink } from 'react-router-dom'
+import { Nav, Container, Navbar } from 'styled-bootstrap-components'
+import {
+  Main, DivText, Text,
+} from './style'
 
-export const MenuCreaterOrders = () => {
-
-    return (
+export const MenuCreaterOrders = () => (
 
 <Main>
      <Nav center expandSm>
@@ -14,7 +14,7 @@ export const MenuCreaterOrders = () => {
             <NavLink to = '/project/create/categories' style={{ textDecoration: 'none', color: 'green' }} >
             <Text>Категории</Text>
             </NavLink>
-            
+
         </DivText>
         <DivText>
         <NavLink to = '/project/create/explanation' style={{ textDecoration: 'none', color: 'green' }} >
@@ -28,9 +28,5 @@ export const MenuCreaterOrders = () => {
            </DivText>
      </Nav>
 </Main>
-  
 
-
-    )
-
-}
+)

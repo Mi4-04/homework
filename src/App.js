@@ -9,19 +9,20 @@ import { About } from './Pages/About/About';
 import { Auth } from './components/Auth/Auth';
 import { Login } from './Pages/Login/Login';
 import Register from './Pages/Register';
-import { AuthProvider } from './context/auth';
+import { AuthProvider } from './context/authContext/auth';
 import AuthRoute from './components/Auth/AuthRoute'
-import {OrderRegistration} from './Pages/Orders/OrderRegistration/OrderRegistration'
+import { OrderRegistration } from './Pages/Orders/OrderRegistration/OrderRegistration'
 import { Categories } from './Pages/Orders/Сategories/Сategories';
 import { Explantion } from './Pages/Orders/Explanation/Explanation';
 import { Publication } from './Pages/Orders/Publication/Publication';
+// import { OrderCreatorProvider } from './context/orderCreatorContext/globalState'
 
 function App() {
-  
   return (
+
   <AuthProvider>
     <BrowserRouter>
-    
+
       <div className="container pt-4 ">
         <NavbarLight />
         <Switch>
@@ -41,9 +42,10 @@ function App() {
           <Route path = "/project/create/publication" component= {Publication} />
         </Switch>
       </div>
-      
+
     </BrowserRouter>
     </AuthProvider>
+
   );
 }
 

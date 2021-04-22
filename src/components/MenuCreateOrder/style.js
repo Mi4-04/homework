@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Main  = styled.div `
+export const Main = styled.div`
 background: white;
 margin-bottom: 1px;
 
@@ -17,9 +17,8 @@ export const DivText = styled.div`
   }
   
 `;
-export const Text = styled.p `
+export const Text = styled.p`
 color: green;
 font-size: 25px;
 
 `;
-

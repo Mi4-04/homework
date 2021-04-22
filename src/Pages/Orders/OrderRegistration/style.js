@@ -8,7 +8,7 @@ margin-left: 30px;
 font-size: 40px
 `;
 
-export const TitleFilters = styled.h2 `
+export const TitleFilters = styled.h2`
 color: rgb(0,180,0);
 display: inline;
 margin-left: 30px;
@@ -17,14 +17,14 @@ text-transform: uppercase;
 
 `;
 
-export const DivNumber1  = styled.div `
+export const DivNumber1 = styled.div`
 
 padding-top: 20px;
 margin-bottom: 40px;
 
 `;
 
-export const DivNumber2 = styled.div `
+export const DivNumber2 = styled.div`
 
 width: 100;
 text-align: center;
@@ -32,7 +32,7 @@ margin-top: 50px;
 margin-bottom: 40px;
 `;
 
-export const DivNumber3 = styled.div `
+export const DivNumber3 = styled.div`
 
 width: 100;
 text-align: right;
@@ -40,20 +40,20 @@ margin-top: 50px;
 margin-bottom: 40px;
 `;
 
-export const TextContent = styled.div `
+export const TextContent = styled.div`
 width: 100;
 text-align: center;
 margin-top: 50px;
 margin-bottom: 40px;
 `;
 
-export const Text = styled.p `
+export const Text = styled.p`
 
 font-size: 35px;
 text-shadow: 0 5px 10px rgba(0,0,0,.2);
 `;
 
-export const Button = styled.button `
+export const Button = styled.button`
 background: #28a745;
 color: white;
 display: block;
@@ -69,21 +69,21 @@ height: 80px;
 
 `;
 
-export const DivButton = styled.div `
+export const DivButton = styled.div`
 display:flex;
 text-align: center;
 justify-content: center;
 
 `;
 
-export const Content = styled.div `
+export const Content = styled.div`
 
   margin-top: 30px;
   padding-bottom: 30px;
   padding-left: 20px;
   padding-right: 20px;
 `
-export const Main = styled.div `
+export const Main = styled.div`
 
 background: #fbfbfb;
 `;

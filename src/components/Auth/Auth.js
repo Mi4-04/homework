@@ -3,9 +3,7 @@ import { Nav } from 'styled-nav-component';
 import { NavLink } from 'react-router-dom';
 import NavLog from './style';
 
-
-export const Auth = () => {
-  return (
+export const Auth = () => (
     <div>
       <NavLog>
         <Nav dark justified center tabs>
@@ -15,5 +13,4 @@ export const Auth = () => {
         </Nav>
       </NavLog>
     </div>
-  );
-};
+);

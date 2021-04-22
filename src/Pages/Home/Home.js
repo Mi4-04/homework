@@ -1,13 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { NavLink } from 'react-router-dom';
-//import styled from 'styled-components';
+// import styled from 'styled-components';
 import { Container } from 'styled-container-component';
 import { Button, ButtonGroup, ButtonToolbar } from 'styled-button-component';
-import { GeneralTop, HeaderName, HeaderInfo1, HeaderInfo2, Iorders, IExecutors, DivButton } from './style';
+import {
+  GeneralTop, HeaderName, HeaderInfo1, HeaderInfo2, Iorders, IExecutors, DivButton,
+} from './style';
 
-export const Home = () => {
-  return (
+export const Home = () => (
     <div>
       <Helmet title="Главная" />
       <GeneralTop dark>
@@ -49,5 +50,4 @@ export const Home = () => {
         </Container>
       </GeneralTop>
     </div>
-  );
-};
+);

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const NameAuth = styled.div `
+export const NameAuth = styled.div`
   text-align: center;
 `;
 
-export const FormControl = styled.input `
+export const FormControl = styled.input`
     display: block;
     box-sizing: border-box;
     border:1px solid #bebebe;
@@ -24,7 +24,7 @@ export const FormControl = styled.input `
    }
 `;
 
-export const Button = styled.button `
+export const Button = styled.button`
 
 display: block;
 background: #343a40;
@@ -38,8 +38,7 @@ border-radius: 5px;
 }
 `;
 
-
-export const ErrorMsg = styled.p `
+export const ErrorMsg = styled.p`
 
 color: red;
 :before {

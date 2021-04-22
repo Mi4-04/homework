@@ -1,11 +1,10 @@
-import React, {  useContext } from 'react';
+import React, { useContext } from 'react';
 import { Navbar, NavbarLink } from 'styled-navbar-component';
 import { Nav } from 'styled-nav-component';
 import { NavLink } from 'react-router-dom';
-import { StyledNav } from './style';
 import { Button } from 'styled-button-component';
-import { AuthContext } from '../../context/auth';
-
+import { StyledNav } from './style';
+import { AuthContext } from '../../context/authContext/auth';
 
 function LoginButton(props) {
   return (
@@ -27,7 +26,6 @@ function LogoutButton(props) {
   );
 }
 
-
 function PostButton() {
   return (
 <NavLink to = "/project/create" >
@@ -39,9 +37,9 @@ function PostButton() {
 }
 
 export const NavbarLight = () => {
-  const {user, logout} = useContext(AuthContext)
+  const { user, logout } = useContext(AuthContext)
 
-  const navbarLayout =   (
+  const navbarLayout = (
     <StyledNav>
     <Navbar expandSm dark>
       <Nav start="true">
@@ -73,12 +71,11 @@ export const NavbarLight = () => {
 
       <Nav end="true" expandSm>
         {user ? <PostButton /> : null}
-        {user ? <LogoutButton onClick = {logout} />  : <LoginButton />}
+        {user ? <LogoutButton onClick = {logout} /> : <LoginButton />}
       </Nav>
     </Navbar>
   </StyledNav>
-  ) 
+  )
 
   return navbarLayout;
-
 };

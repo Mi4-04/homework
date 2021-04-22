@@ -5,5 +5,4 @@ const instance = axios.create({
   responseType: 'json',
 });
 
-
 export default instance;

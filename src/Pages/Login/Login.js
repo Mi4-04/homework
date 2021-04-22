@@ -1,25 +1,23 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Helmet from 'react-helmet';
-import { Auth } from '../../components/Auth/Auth';
 import { FormGroup, FormText } from 'styled-form-component';
 import { Container } from 'styled-container-component';
-import { NameAuth, FormControl, Button, ErrorMsg } from './style';
 import { useForm } from 'react-hook-form';
-import { ErrorMessage } from "@hookform/error-message";
+import { ErrorMessage } from '@hookform/error-message';
+import {
+  NameAuth, FormControl, Button, ErrorMsg,
+} from './style';
+import { Auth } from '../../components/Auth/Auth';
 import request from '../../utils/request';
-import { AuthContext } from '../../context/auth';
-
-
+import { AuthContext } from '../../context/authContext/auth';
 
 export const Login = (props) => {
-
   const context = useContext(AuthContext)
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
-
     const response = await request({ method: 'post', data, url: '/signin' })
-    
+
     context.signIn(response.data.token)
     props.history.push('/orders')
   };
@@ -45,7 +43,7 @@ export const Login = (props) => {
         errors={errors}
         name="email"
         render={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+          () => <ErrorMsg>`This is required`</ErrorMsg>}
       />
 
             <FormText muted>We&#39;ll never share your email with anyone else.</FormText>
@@ -63,13 +61,12 @@ export const Login = (props) => {
         errors={errors}
         name="email"
         render={
-          () => <ErrorMsg>"This is required"</ErrorMsg>}
+          () => <ErrorMsg>`This is required`</ErrorMsg>}
       />
 
-
           <FormGroup>
-            <Button  type="submit"  >
-              
+            <Button type="submit" >
+
               Войти
             </Button>
           </FormGroup>

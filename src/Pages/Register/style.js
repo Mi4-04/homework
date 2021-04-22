@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const NameAuth = styled.div `
+export const NameAuth = styled.div`
   text-align: center;
 `;
 
-export const FormControl = styled.input `
+export const FormControl = styled.input`
     display: block;
     box-sizing: border-box;
     border:1px solid #bebebe;
@@ -24,7 +24,7 @@ export const FormControl = styled.input `
    }
 `;
 
-export const ErrorMsg = styled.p `
+export const ErrorMsg = styled.p`
 
 color: red;
 :before {
@@ -33,13 +33,13 @@ color: red;
 }
 `;
 
-export const DivSelect = styled.div `
+export const DivSelect = styled.div`
 
 text-align: center;
 
 `;
 
-export const LabelSelect  =styled.label `
+export const LabelSelect = styled.label`
 font-size: 18px;
 padding-bottom: 25px;
 margin-left: 25px;
